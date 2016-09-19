@@ -14,7 +14,28 @@ int main(int argc, char*argv[]) {
     usage(name);
     return 1;
   }
-  cout << "nb d'arguments: " << argc << endl;
-  cout << "nom du programme: " << argv[0] << endl;
+
+  string command = argv[1];
+  if(command == "list") {
+    cout << "Todo list:" << endl;
+  }else if(command == "add") {
+    if(argc != 3) {
+      usage(name);
+      return 1;
+    }
+
+    string title = argv[2];
+    cout << "adding " << title << endl;
+  } else if(command == "remove") {
+    if(argc != 3) {
+      usage(name);
+      return 1;
+    }
+    uint index = atoi(argv[2]);
+    cout << "removing item at index = " << index << endl;
+  } else {
+    usage(name);
+    return 1;
+  }
   return 0;
 }
