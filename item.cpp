@@ -21,3 +21,11 @@ void Item::Change(string _title, string _text) {
   title = _title;
   text = _text;
 }
+
+string Item::Title() {
+  return title;
+}
+
+string Item::Text() {
+  return text;
+}
