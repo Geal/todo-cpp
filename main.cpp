@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+#include "item.h"
+
 void usage(string name) {
   cout << "Usage:" << endl
        << "\t" << name << " add \"do stuff\"" << endl
@@ -9,6 +11,10 @@ void usage(string name) {
 }
 
 int main(int argc, char*argv[]) {
+  Item it = Item();
+
+
+
   string name = argv[0];
   if(argc < 2) {
     usage(name);
