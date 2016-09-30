@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+#include "file.h"
 #include "item.h"
 
 void usage(string name) {
@@ -13,8 +14,11 @@ void usage(string name) {
 int main(int argc, char*argv[]) {
 
   Item list[10];
-//  list[0].Change("item 0", "hello");
-//  list[0].Print();
+  list[0].Change("item 0", "hello");
+  list[1].Change("item 1", "hello world");
+  list[0].Print();
+
+  write_items(list);
 
 
   string name = argv[0];
