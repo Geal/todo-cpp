@@ -9,4 +9,5 @@ class Item {
     Item();
     Item(string,string);
     void Print();
+    void Change(string title, string text);
 };

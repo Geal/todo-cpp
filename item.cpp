@@ -16,3 +16,8 @@ Item::Item(string _title, string _text) {
 void Item::Print() {
   cout << " title: " << title << endl << "text: " << text << endl;
 }
+
+void Item::Change(string _title, string _text) {
+  title = _title;
+  text = _text;
+}
