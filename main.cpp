@@ -11,8 +11,10 @@ void usage(string name) {
 }
 
 int main(int argc, char*argv[]) {
-  Item it = Item();
 
+  Item list[10];
+//  list[0].Change("item 0", "hello");
+//  list[0].Print();
 
 
   string name = argv[0];
