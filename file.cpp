@@ -8,7 +8,7 @@ using namespace std;
 
 void write_items(Item items[10]) {
   ofstream wfile;
-  wfile.open ("data.txt");
+  wfile.open ("data.db");
   if (wfile.is_open()) {
     for(int i = 0; i < 10; i++) {
       wfile << items[i].Title() << '\x1F' << items[i].Text() << '\x1E';
@@ -28,7 +28,7 @@ void read_items(Item items[10] ) {
 */
 
 string read_file() {
-  ifstream rfile ("data.txt");
+  ifstream rfile ("data.db");
   if (rfile.is_open()) {
     stringstream buffer;
     buffer << rfile.rdbuf();
