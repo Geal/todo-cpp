@@ -6,7 +6,7 @@ using namespace std;
 
 void usage(string name) {
   cout << "Usage:" << endl
-       << "\t" << name << " add \"do stuff\"" << endl
+       << "\t" << name << " add 0 \"do stuff\" \"text\"" << endl
        << "\t" << name << " remove 0" << endl
        << "\t" << name << " list" << endl;
 }
@@ -31,13 +31,17 @@ int main(int argc, char*argv[]) {
   if(command == "list") {
     cout << "Todo list:" << endl;
   }else if(command == "add") {
-    if(argc != 3) {
+    if(argc != 5) {
       usage(name);
       return 1;
     }
 
-    string title = argv[2];
-    cout << "adding " << title << endl;
+    uint index = atoi(argv[2]);
+    string title = argv[3];
+    string text  = argv[4];
+    cout << "adding " << title << " at " << index << endl;
+    list[index].Change(title, text);
+    write_items(list);
   } else if(command == "remove") {
     if(argc != 3) {
       usage(name);
