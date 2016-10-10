@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 #include "file.h"
@@ -6,20 +7,14 @@ using namespace std;
 
 void usage(string name) {
   cout << "Usage:" << endl
-       << "\t" << name << " add 0 \"do stuff\" \"text\"" << endl
+       << "\t" << name << " add \"do stuff\" \"text\"" << endl
        << "\t" << name << " remove 0" << endl
        << "\t" << name << " list" << endl;
 }
 
 int main(int argc, char*argv[]) {
-
-  Item list[10];
-  list[0].Change("item 0", "hello");
-  list[1].Change("item 1", "hello world");
-  list[0].Print();
-
-  write_items(list);
-
+  vector<Item> list;
+  read_items(list);
 
   string name = argv[0];
   if(argc < 2) {
@@ -31,20 +26,20 @@ int main(int argc, char*argv[]) {
   if(command == "list") {
     cout << "Todo list:" << endl;
 
-    for(int i = 0; i< 10; i++) {
-      list[i].Print();
+    for(Item it: list) {
+      it.Print();
     }
   }else if(command == "add") {
-    if(argc != 5) {
+    if(argc != 4) {
       usage(name);
       return 1;
     }
 
-    uint index = atoi(argv[2]);
-    string title = argv[3];
-    string text  = argv[4];
-    cout << "adding " << title << " at " << index << endl;
-    list[index].Change(title, text);
+    //uint index = atoi(argv[2]);
+    string title = argv[2];
+    string text  = argv[3];
+    cout << "adding " << title << endl;
+    list.push_back(Item(title, text));
     write_items(list);
   } else if(command == "remove") {
     if(argc != 3) {

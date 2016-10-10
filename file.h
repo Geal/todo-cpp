@@ -1,5 +1,6 @@
 #include "item.h"
+#include <vector>
 
-void write_items(Item items[10]);
-void read_items(Item items[10]);
+void write_items(std::vector<Item> items);
+void read_items(std::vector<Item>& items);
 
