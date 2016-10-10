@@ -30,6 +30,10 @@ int main(int argc, char*argv[]) {
   string command = argv[1];
   if(command == "list") {
     cout << "Todo list:" << endl;
+
+    for(int i = 0; i< 10; i++) {
+      list[i].Print();
+    }
   }else if(command == "add") {
     if(argc != 5) {
       usage(name);
