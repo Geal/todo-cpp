@@ -14,7 +14,10 @@ Item::Item(string _title, string _text) {
 }
 
 void Item::Print() {
-  cout << " title: " << title << endl << "text: " << text << endl;
+  if(title != "" || text != "") {
+    cout << " title: " << title << endl
+         << "text: " << text << endl;
+  }
 }
 
 void Item::Change(string _title, string _text) {
