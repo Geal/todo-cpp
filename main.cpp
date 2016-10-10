@@ -35,7 +35,6 @@ int main(int argc, char*argv[]) {
       return 1;
     }
 
-    //uint index = atoi(argv[2]);
     string title = argv[2];
     string text  = argv[3];
     cout << "adding " << title << endl;
@@ -48,6 +47,15 @@ int main(int argc, char*argv[]) {
     }
     uint index = atoi(argv[2]);
     cout << "removing item at index = " << index << endl;
+
+    if(index > list.size()) {
+      cout << "no todo item at index " << index << endl;
+      return 1;
+    }
+
+    list.erase(list.begin() + index);
+    write_items(list);
+
   } else {
     usage(name);
     return 1;
